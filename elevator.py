@@ -25,7 +25,7 @@ class elevator:
     button_ext = 0
     button_int = 0
 
-    def move_and_draw_all_game_objects(self):
+    def __move_and_draw_all_game_objects(self):
         # mueve el ascensor
         if self.motor != "stop" or self.door_state == "closing" or self.door_state == "opening":
             self.screen.blit(self.background, (0, 0))
@@ -51,13 +51,6 @@ class elevator:
         pygame.display.update()
         pygame.time.delay(50)
         
-    def __execute(self):
-        while True:
-            for evento in pygame.event.get():
-                if evento.type == QUIT:
-                    pygame.quit()
-                    sys.exit()
-            self.move_and_draw_all_game_objects()
 
     def destroy(self):
         pygame.quit()
@@ -158,13 +151,19 @@ class elevator:
         self.button_int = 0
         return state
 
-    def set_light_call(self, key,state):
+    def set_light_call(self, key, state):
+        key = key-1
+        if key < 0 or key > 4:
+            return
         if state == "off":
             draw.circle(self.screen, self.c_blanco, (817, 720-key*58), 13)
         elif state == "on":
             draw.circle(self.screen, self.c_verde, (817, 720-key*58), 13)
 
-    def set_light_int(self, key,state):
+    def set_light_int(self, key, state):
+        key = key-1
+        if key < 0 or key > 4:
+            return
         if state == "off":
             draw.circle(self.screen, self.c_blanco, (820, 349-key*58), 13)
         elif state == "on":
@@ -209,7 +208,7 @@ class elevator:
         elif( pygame.key.get_pressed()[pygame.K_5] != 0 ):
             self.button_int = 5
         
-        self.move_and_draw_all_game_objects()
+        self.__move_and_draw_all_game_objects()
         
         
         
