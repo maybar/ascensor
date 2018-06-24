@@ -1,6 +1,6 @@
 # ascensor
 Librería gráfica de control de ascensor
-Libreria de usos educativo que fascilita de la realización de tests para probar algoritmos de control de ascesonsores.
+Libreria de usos educativo que facilita la realización de tests para probar algoritmos de control de ascesores.
 
 # Métodos
 ## elevator(caption)
@@ -19,7 +19,7 @@ Establece el estado de movimiento del motor.
 * mov : "up", "down", "stop"
 
 ## get_motor()
-Devuelve el estdo actual del motor: "up", "down", "stop"
+Devuelve el estado actual del motor: "up", "down", "stop"
 
 ## set_door(state):
 Comanda el control de las puertas.
