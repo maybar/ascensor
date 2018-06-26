@@ -146,7 +146,7 @@ class elevator:
         self.button_ext = 0
         return state
 
-    def get_button_int(self, key):
+    def get_button_int(self):
         state = self.button_int
         self.button_int = 0
         return state
