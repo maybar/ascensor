@@ -44,9 +44,8 @@ Develve el botón de llamada de ascensor: 0,1,2,3,4,5
 0: Ningún botón ha sido pulsado.
 Los botones de llamanda puede ser controlados por el ratón o usando las teclas: F1,F2,F3,F4,F5
 
-## get_button_int(key):
-Develve el botón de piso de la botonera
-* key: 0,1,2,3,4,5
+## get_button_int():
+Develve el botón de piso de la botonera: 0,1,2,3,4,5
 0: Ningún botón ha sido pulsado.
 Los botones de llamanda puede ser controlados por el ratón o usando las teclas: 1,2,3,4,5
 
