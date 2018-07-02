@@ -24,6 +24,7 @@ class elevator:
     cont =0;
     button_ext = 0
     button_int = 0
+    last_floor = 0
 
     def __move_and_draw_all_game_objects(self):
         # mueve el ascensor
@@ -122,15 +123,18 @@ class elevator:
         
     def get_floor(self):
         piso =(650 - self.position.top)/156.0
-        return piso
+        return piso+1
 
     def set_floor_indicator(self, floor):
-            font = pygame.font.SysFont("consolas", 70)
-            text = font.render(str(floor), True, (128, 255,128))
-            rect = ((0, 0),(100,70))
-            bg_text = self.botonera.subsurface(rect)
-            self.screen.blit(bg_text, (770, 5))
-            self.screen.blit(text, (805, 20))
+        if floor == self.last_floor:
+            return
+        font = pygame.font.SysFont("consolas", 70)
+        text = font.render(str(floor), True, (128, 255,128))
+        rect = ((0, 0),(100,70))
+        bg_text = self.botonera.subsurface(rect)
+        self.screen.blit(bg_text, (770, 5))
+        self.screen.blit(text, (805, 20))
+        self.last_floor = floor
 
     def set_mov_indicator(self, mov):
         if mov == "stop":
@@ -177,7 +181,7 @@ class elevator:
                  sys.exit()
         if pygame.mouse.get_pressed()[0]:
             mouse_pos = mouse.get_pos()
-            print (mouse_pos)
+            #print (mouse_pos)
             for x in range(0,5):
                 rect1 = pygame.Rect(800,327-x*58,39,38)
                 rect2 = pygame.Rect(800,707-x*58,39,38)
@@ -207,7 +211,9 @@ class elevator:
             self.button_int = 4
         elif( pygame.key.get_pressed()[pygame.K_5] != 0 ):
             self.button_int = 5
-        
+        elif( pygame.key.get_pressed()[pygame.K_ESCAPE] != 0 ):
+            pygame.quit()
+            sys.exit()
         self.__move_and_draw_all_game_objects()
         
         
