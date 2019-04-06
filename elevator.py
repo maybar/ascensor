@@ -59,7 +59,7 @@ class elevator:
             
     def __init__(self, caption):
         pygame.init()
-        self.screen = pygame.display.set_mode((1024,768))
+        self.screen = pygame.display.set_mode((1024,768), pygame.FULLSCREEN)
         pygame.display.set_caption(caption)
         self.background = pygame.image.load('edificio.png').convert()
         self.screen.blit(self.background, (0, 0))        #draw the background
